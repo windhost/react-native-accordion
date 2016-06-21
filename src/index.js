@@ -1,14 +1,14 @@
 'use strict';
 
-var React = require('react-native');
-var tweenState = require('react-tween-state');
-
-var {
+import tweenState from 'react-tween-state';
+import React from 'react';
+import {
   StyleSheet,
   TouchableHighlight,
   View,
   Text
-} = React;
+}
+from 'react-native';
 
 var Accordion = React.createClass({
   mixins: [tweenState.Mixin],
@@ -92,29 +92,21 @@ var Accordion = React.createClass({
   render() {
     return (
       /*jshint ignore:start */
-      <View
-        style={{
-          overflow: 'hidden'
-        }}
-      >
-        <TouchableHighlight
-          ref="AccordionHeader"
-          onPress={this._onPress}
-          underlayColor={this.props.underlayColor}
-          style={this.props.style}
-        >
-          {this.props.header}
-        </TouchableHighlight>
-        <View
-          ref="AccordionContentWrapper"
-          style={{
-            height: this.getTweeningValue('height')
-          }}
-        >
-          <View ref="AccordionContent">
-            {this.props.content}
-          </View>
-        </View>
+      <View style = {{overflow: 'hidden'}}>
+         <TouchableHighlight 
+             ref = "AccordionHeader"
+             onPress = {this._onPress}
+             underlayColor = {this.props.underlayColor}
+             style = {this.props.style}> 
+          {this.props.header} 
+         </TouchableHighlight> 
+         <View 
+            ref = "AccordionContentWrapper"
+            style = {{height: this.getTweeningValue('height')}}>
+           <View ref = "AccordionContent"> 
+           {this.props.content}
+           </View>
+         </View> 
       </View>
       /*jshint ignore:end */
     );
